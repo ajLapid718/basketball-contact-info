@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.team-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

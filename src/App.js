@@ -3,7 +3,7 @@ import axios from "axios";
 import "./App.css";
 // import BasketballPlayerForm from "./components/BasketballPlayerForm";
 // import GamesPlayed from "./components/GamesPlayed";
-import { BasketballPlayerForm, GamesPlayed } from "./components";
+import { BasketballPlayerForm, GamesPlayed, BasketballTeamsContainer } from "./components";
 
 /*
 
@@ -22,6 +22,14 @@ import { BasketballPlayerForm, GamesPlayed } from "./components";
 [DONE]: I want to extend the featureset of my application to showcase the amount of games the NBA player played;
   - So, all I need to do is grab the "games_played" key within the JSON Response Object and populate that to the UI;
 
+[DONE]: I want to populate my UI with all 30 NBA basketball teams that exist
+  - I want to see these team names the moment I land on the page
+  - I want to implement the smart container/presentational component "design pattern";
+    - This will involve a smart component called BasketballTeamsContainer.jsx
+      - This will grab the data from the API;
+    - This will also involve a presentational component (view) called BasketballTeamsView.jsx
+      - This will simply render HTML + JS (based on props) aka JSX; 
+
 */
 
 /*
@@ -30,7 +38,7 @@ import { BasketballPlayerForm, GamesPlayed } from "./components";
                                                      |
                                                      |
                                                      |
-                        <BasketballPlayerForm /> --------- <GamesPlayed />
+                        <BasketballPlayerForm /> --------- <GamesPlayed /> ----- <BasketballTeams />
 
 */
 
@@ -73,6 +81,7 @@ class App extends Component {
 
         <BasketballPlayerForm handleSubmit={this.handleSubmit} clearCurrentPlayer={this.clearCurrentPlayer} />
         <GamesPlayed gamesPlayed={this.state.currentPlayer.games_played} />
+        <BasketballTeamsContainer />
       </div>
     );
   }
